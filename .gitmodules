@@ -4,3 +4,6 @@
 [submodule "projects/hello-world/contracts/lib/infernet-sdk"]
 	path = projects/hello-world/contracts/lib/infernet-sdk
 	url = https://github.com/ritual-net/infernet-sdk
+[submodule "projects/sample-gpt3/contracts/lib/infernet-sdk"]
+	path = projects/sample-gpt3/contracts/lib/infernet-sdk
+	url = https://github.com/ritual-net/infernet-sdk
