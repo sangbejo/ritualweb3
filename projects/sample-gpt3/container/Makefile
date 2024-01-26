@@ -2,7 +2,7 @@ DOCKER_ORG := ritualnetwork
 NAME := infernet-starter-sample-gpt3
 TAG := $(DOCKER_ORG)/$(NAME):latest
 
-.phony: build run publish
+.phony: build run publish build-multiplatform try-prompt
 
 build:
 	@docker build -t $(TAG) .

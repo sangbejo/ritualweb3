@@ -15,9 +15,10 @@ contract Deploy is Script {
         console2.log("Loaded deployer: ", deployerAddress);
 
         address coordinator = 0x5FbDB2315678afecb367f032d93F642f64180aa3;
+
         // Create consumer
         PromptsGPT promptsGPT = new PromptsGPT(coordinator);
-        console2.log("Deployed SaysHello: ", address(promptsGPT));
+        console2.log("Deployed PromptsGPT: ", address(promptsGPT));
 
         // Execute
         vm.stopBroadcast();

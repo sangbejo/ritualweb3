@@ -41,7 +41,7 @@ def create_app() -> Flask:
 
     @app.route("/")
     def index() -> str:
-        return "Hello world service!"
+        return "GPT 3 service!"
 
     @app.route("/service_output", methods=["POST"])
     def inference() -> dict[str, Any]:

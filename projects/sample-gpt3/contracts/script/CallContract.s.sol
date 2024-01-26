@@ -10,9 +10,9 @@ contract CallContract is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        PromptsGPT saysGm = PromptsGPT(0x663F3ad617193148711d28f5334eE4Ed07016602);
+        PromptsGPT promptsGpt = PromptsGPT(0x663F3ad617193148711d28f5334eE4Ed07016602);
 
-        saysGm.promptGPT(vm.envString("prompt"));
+        promptsGpt.promptGPT(vm.envString("prompt"));
 
         vm.stopBroadcast();
     }
