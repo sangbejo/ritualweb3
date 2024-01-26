@@ -1,7 +1,7 @@
-# `sample-gpt4` Consumer Contracts
+# `sample-gpt3` Consumer Contracts
 
 This is a [foundry](https://book.getfoundry.sh/) project that implements a simple Consumer
-contract, [`SaysGm`](./src/SaysGM.sol). 
+contract, [`SaysGm`](./src/PromptsGPT.sol). 
 
 This readme explains how to compile and deploy the contract to the Infernet Anvil Testnet network. 
 For a detailed tutorial on how to write a consumer contract, refer to the [tutorial doc](./Tutorial.md).

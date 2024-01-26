@@ -25,7 +25,7 @@
   "forward_stats": true,
   "containers": [
     {
-      "id": "sample-gpt4",
+      "id": "sample-gpt3",
       "image": "ritualnetwork/infernet-starter-sample-gpt3:latest",
       "external": true,
       "port": "3000",

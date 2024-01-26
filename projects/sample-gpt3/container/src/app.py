@@ -46,7 +46,13 @@ def create_app() -> Flask:
     @app.route("/service_output", methods=["POST"])
     def inference() -> dict[str, Any]:
         input = request.json
-        prompt = input.get("prompt")
+        print("input is", json.dumps(input, indent=2))
+        if input.get("source") == 0:
+            encoded = input.get("data")
+            bytearray = bytes.fromhex(encoded)
+            prompt = bytearray.decode("utf-8")
+        else:
+            prompt = input.get("data").get("prompt")
         response = query_chatgpt(prompt, api_key=api_key)
         return {"output": response["choices"][0]["message"]["content"]}
 

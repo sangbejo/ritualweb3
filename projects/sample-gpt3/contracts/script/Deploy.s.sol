@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Script, console2} from "forge-std/Script.sol";
-import {SaysGM} from "../src/SaysGM.sol";
+import {PromptsGPT} from "../src/PromptsGPT.sol";
 
 contract Deploy is Script {
     function run() public {
@@ -16,8 +16,8 @@ contract Deploy is Script {
 
         address coordinator = 0x5FbDB2315678afecb367f032d93F642f64180aa3;
         // Create consumer
-        SaysGM saysGm = new SaysGM(coordinator);
-        console2.log("Deployed SaysHello: ", address(saysGm));
+        PromptsGPT promptsGPT = new PromptsGPT(coordinator);
+        console2.log("Deployed SaysHello: ", address(promptsGPT));
 
         // Execute
         vm.stopBroadcast();

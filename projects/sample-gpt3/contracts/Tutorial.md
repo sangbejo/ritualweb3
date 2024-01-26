@@ -1,7 +1,7 @@
 # `GM! 🤠`
 
 In this tutorial we'll make a very simple consumer contract called `SaysGm`.
-All this contract does is request compute from our `sample-gpt4` container and
+All this contract does is request compute from our `sample-gpt3` container and
 upon receiving a response, it prints everything to the console.
 
 > [!NOTE]
@@ -60,9 +60,9 @@ import {CallbackConsumer} from "infernet-sdk/consumer/Callback.sol";
 contract SaysGM is CallbackConsumer {
     constructor(address coordinator) CallbackConsumer(coordinator) {}
 
-    function sayGM() public {
+    function promptGPT() public {
         _requestCompute(
-            "sample-gpt4",
+            "sample-gpt3",
             bytes("Good morning!"),
             20 gwei,
             1_000_000,
@@ -102,7 +102,7 @@ contract SaysGM is CallbackConsumer {
 }
 ```
 
-All this contract does is request compute from our `sample-gpt4` container via the `_requestCompute` function.
+All this contract does is request compute from our `sample-gpt3` container via the `_requestCompute` function.
 An Infernet node will pick up this subscription, execute the compute, and deliver the result to our contract via
 the `_receiveCompute` function.
 
@@ -162,7 +162,7 @@ contract CallContract is Script {
 
         SaysGM saysGm = SaysGM(0x663F3ad617193148711d28f5334eE4Ed07016602);
 
-        saysGm.sayGM();
+        saysGm.promptGPT();
 
         vm.stopBroadcast();
     }
@@ -194,7 +194,7 @@ The project should build successfully.
 **Deploy Infernet**
 
 To deploy our contracts, and later be able to call and test them, we'll need to deploy infernet, as well as
-our `sample-gpt4` container! Refer to [the readme at the root of this project](../../README.md) for instructions on how
+our `sample-gpt3` container! Refer to [the readme at the root of this project](../../README.md) for instructions on how
 to do that.
 
 After deploying an Infernet Node locally, we'll need to run the `Deploy` script.
@@ -226,4 +226,4 @@ Refer to [this project's Makefile](./Makefile) for an example.
 ### 🎉 Done!
 
 Congratulations! You've successfully created a contract that requests compute from
-our `sample-gpt4` container. 
+our `sample-gpt3` container. 

@@ -4,13 +4,13 @@ pragma solidity ^0.8.13;
 import {console2} from "forge-std/console2.sol";
 import {CallbackConsumer} from "infernet-sdk/consumer/Callback.sol";
 
-contract SaysGM is CallbackConsumer {
+contract PromptsGPT is CallbackConsumer {
     constructor(address coordinator) CallbackConsumer(coordinator) {}
 
-    function sayGM() public {
+    function promptGPT(string calldata prompt) public {
         _requestCompute(
-            "sample-gpt4",
-            bytes("Good morning!"),
+            "sample-gpt3",
+            bytes(prompt),
             20 gwei,
             1_000_000,
             1
@@ -39,11 +39,11 @@ contract SaysGM is CallbackConsumer {
         console2.log("interval", interval);
         console2.log("redundancy", redundancy);
         console2.log("node", node);
-        console2.log("input:");
-        console2.logBytes(input);
-        console2.log("output:");
-        console2.logBytes(output);
-        console2.log("proof:");
-        console2.logBytes(proof);
+        //string memory inputStr = abi.decode(input, (string));
+        //console2.log("input: ", inputStr);
+        string memory outputStr = abi.decode(output, (string));
+        console2.log("output:", outputStr);
+        //console2.log("proof:");
+        //console2.logBytes(proof);
     }
 }
