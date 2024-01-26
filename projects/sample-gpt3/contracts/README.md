@@ -1,44 +1,27 @@
-# `sample-gpt3` Consumer Contracts
+# Sample GPT3
 
-This is a [foundry](https://book.getfoundry.sh/) project that implements a simple Consumer
-contract, [`SaysGm`](./src/PromptsGPT.sol). 
+This is a minimalist foundry project that implements
+a [callback consumer](https://docs.ritual.net/infernet/sdk/consumers/Callback)
+that makes a prompt to OpenAI's GPT-3 API. For an end-to-end flow of how this works, see
+the [sample-gpt3 readme](../../../sample-gpt3.md).
 
-This readme explains how to compile and deploy the contract to the Infernet Anvil Testnet network. 
-For a detailed tutorial on how to write a consumer contract, refer to the [tutorial doc](./Tutorial.md).
+## Deploying
 
+The [`Deploy.s.sol`](./script/Deploy.s.sol) deploys the contracts. The [Makefile](./Makefile) in this project containes
+a utility deploy target.
 
-> [!IMPORTANT]  
-> Ensure that you are running the following scripts with the Infernet Anvil Testnet network. 
-> The [tutorial](./../../../README.md) at the root of this repository explains how to
-> bring up an infernet node.
-
-### Installing the libraries
-
-```bash
-forge install
-```
-
-### Compiling the contracts
-
-```bash
-forge compile
-```
-
-### Deploying the contracts
-The deploy script at `script/Deploy.s.sol` deploys the `SaysGM` contract to the Infernet Anvil Testnet network.
-
-We have the [following make target](./Makefile#L9) to deploy the contract. Refer to the Makefile 
-for more understanding around the deploy scripts.
 ```bash
 make deploy
 ```
 
-### Requesting a job
-We also have a script called `CallContract.s.sol` that requests a job to the `SaysGM` contract.
-Refer to the [script](./script/CallContract.s.sol) for more details. Similar to deployment, 
-you can run that script using the following convenience make target.
+## Prompting
+
+The [`CallContract.s.sol`](./script/CallContract.s.sol) calls the [`promptGPT`](./src/PromptsGPT.sol#L10) function.
+The [Makefile](./Makefile) in this project contains a utility call target. You'll need to pass in the prompt as an 
+env var. 
+
 ```bash
-make call-contract
+prompt="What is 2 * 3?" make call-contract
 ```
-Refer to the [Makefile](./Makefile#L14) for more details.
+
 
