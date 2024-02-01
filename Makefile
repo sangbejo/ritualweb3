@@ -11,4 +11,3 @@ deploy-contracts:
 
 call-contract:
 	$(MAKE) -C ./projects/$(project)/contracts call-contract
-

@@ -20,6 +20,11 @@ build/
 # Virtual environment
 venv/
 
+# IDE files
 **/.idea
 
+# env files
 **/*.env
+
+# OS Files
+**/.DS_Store

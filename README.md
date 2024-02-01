@@ -47,7 +47,7 @@ curl -X POST http://127.0.0.1:4000/api/jobs \
      -d '{"containers":["hello-world"], "data": {"some": "input"}}'
 # returns
 {"id":"d5281dd5-c4f4-4523-a9c2-266398e06007"}
-``` 
+```
 
 This will return the id of that job.
 
@@ -78,7 +78,7 @@ In this section we'll go over how to request an on-chain job in a local testnet.
 
 To request an on-chain job, you'll need to deploy contracts using the infernet sdk.
 We already have a public [anvil node](https://hub.docker.com/r/ritualnetwork/infernet-anvil) docker image which has the
-corresponding infernet sdk contracts deployed, along with a node that has 
+corresponding infernet sdk contracts deployed, along with a node that has
 registered itself to listen to on-chain subscription events.
 
 * Coordinator Address: `0x5FbDB2315678afecb367f032d93F642f64180aa3`
@@ -217,5 +217,3 @@ To learn more about on-chain requests, check out the following resources:
 1. [Tutorial](./projects/hello-world/contracts/Tutorial.md) on this project's consumer smart contracts.
 2. [Infernet Callback Consumer Tutorial](https://docs.ritual.net/infernet/sdk/consumers/Callback)
 3. [Infernet Nodes Docoumentation](https://docs.ritual.net/infernet/nodes)
-
-

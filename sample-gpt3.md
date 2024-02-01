@@ -57,15 +57,15 @@ You can then check the status of the job by running:
 
 ```bash
 curl -X GET http://127.0.0.1:4000/api/jobs\?id\=cab6eea8-8b1e-4144-9a70-f905c5ef375b
-# response [{"id":"cab6eea8-8b1e-4144-9a70-f905c5ef375b","result":{"container":"sample-gpt3","output":{"output":"The meaning of life is subjective and can vary from person to person. It often reflects one's values, beliefs, and personal experiences. Some people find meaning in relationships, love, and connection with others. Others find meaning in pursuing their passions or contributing to the greater good of society. Ultimately, it's up to each individual to define their own purpose and find meaning in their own life journey."}},"status":"success"}]```     
+# response [{"id":"cab6eea8-8b1e-4144-9a70-f905c5ef375b","result":{"container":"sample-gpt3","output":{"output":"The meaning of life is subjective and can vary from person to person. It often reflects one's values, beliefs, and personal experiences. Some people find meaning in relationships, love, and connection with others. Others find meaning in pursuing their passions or contributing to the greater good of society. Ultimately, it's up to each individual to define their own purpose and find meaning in their own life journey."}},"status":"success"}]```
 ```
 
 ## Making a Web3 Request
-Now let's bring this service onchain! First we'll have to deploy the contracts. The [contracts](./projects/sample-gpt3/contracts) 
-directory contains a simple foundry project with a simple contract called `PromptsGpt`. This contract exposes a single 
+Now let's bring this service onchain! First we'll have to deploy the contracts. The [contracts](./projects/sample-gpt3/contracts)
+directory contains a simple foundry project with a simple contract called `PromptsGpt`. This contract exposes a single
 function `function promptGPT(string calldata prompt)`. Using this function you'll be able to make an infernet request.
 
-**Anvil Logs**: First, it's useful to look at the logs of the anvil node to see what's going on. In a new terminal, run 
+**Anvil Logs**: First, it's useful to look at the logs of the anvil node to see what's going on. In a new terminal, run
 `docker logs -f anvil-node`.
 
 **Deploying the contracts**: In another terminal, run the following command:
@@ -76,7 +76,7 @@ project=sample-gpt3 make deploy-contracts
 
 ### Calling the contract
 Now, let's call the contract. So far everything's been identical to the [hello world](./README.md) project. The only
-difference here is that calling the contract requires an input. We'll pass that input in using an env var named 
+difference here is that calling the contract requires an input. We'll pass that input in using an env var named
 `prompt`:
 
 ```bash

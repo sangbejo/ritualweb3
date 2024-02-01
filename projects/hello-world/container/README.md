@@ -3,8 +3,8 @@
 In this tutorial, we'll create a simple hello-world container that can be used
 with infernet.
 
-> [!NOTE]  
-> This directory `containers/hello-world` already includes the final result 
+> [!NOTE]
+> This directory `containers/hello-world` already includes the final result
 > of this tutorial. Run the following tutorial in a new directory.
 
 Let's get started! 🎉
@@ -88,7 +88,7 @@ This is a simple Dockerfile that:
 3. Copies the source code
 4. Runs the app on port `3000`
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > App must be exposed on port `3000`. Infernet's orchestrator
 > will always assume that the container apps are exposed on that port within the container.
 > Users can then remap this port to any port that they want on the host machine
