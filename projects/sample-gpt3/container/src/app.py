@@ -3,7 +3,7 @@ import os
 from typing import Any, cast
 
 import requests
-from flask import Flask, request  # type: ignore
+from flask import Flask, request
 
 # read api key from env
 api_key = os.environ["OPENAI_API_KEY"]
@@ -41,11 +41,11 @@ def create_app() -> Flask:
     app = Flask(__name__)
 
     @app.route("/")
-    def index():  # type: ignore
+    def index() -> str:
         return "GPT 3 service!"
 
     @app.route("/service_output", methods=["POST"])
-    def inference():  # type: ignore
+    def inference() -> dict[str, str]:
         input: dict[str, Any] = cast(dict[str, Any], request.json)
         print("input is", json.dumps(input, indent=2))
         if input.get("source") == 0:
