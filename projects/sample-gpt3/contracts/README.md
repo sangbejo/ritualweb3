@@ -7,7 +7,8 @@ the [sample-gpt3 readme](../../../sample-gpt3.md).
 
 ## Deploying
 
-The [`Deploy.s.sol`](./script/Deploy.s.sol) deploys the contracts. The [Makefile](./Makefile) in this project containes
+The [`Deploy.s.sol`](./script/Deploy.s.sol) deploys the contracts.
+The [Makefile](./Makefile) in this project containes
 a utility deploy target.
 
 ```bash
@@ -16,8 +17,10 @@ make deploy
 
 ## Prompting
 
-The [`CallContract.s.sol`](./script/CallContract.s.sol) calls the [`promptGPT`](./src/PromptsGPT.sol#L10) function.
-The [Makefile](./Makefile) in this project contains a utility call target. You'll need to pass in the prompt as an
+The [`CallContract.s.sol`](./script/CallContract.s.sol) calls
+the [`promptGPT`](./src/PromptsGPT.sol#L10) function.
+The [Makefile](./Makefile) in this project contains a utility call target. You'll need
+to pass in the prompt as an
 env var.
 
 ```bash
