@@ -1,16 +1,17 @@
-from typing import Any
+import json
+import os
+from typing import Any, cast
 
+import requests
 from flask import Flask, request
 
-import os
-import json
-import requests
-
 # read api key from env
-api_key = os.environ.get("OPENAI_API_KEY")
+api_key = os.environ["OPENAI_API_KEY"]
 
 
-def query_chatgpt(prompt, model="gpt-3.5-turbo-0613", api_key=api_key):
+def query_chatgpt(
+    prompt: str, model: str = "gpt-3.5-turbo-0613", api_key: str = api_key
+) -> Any:
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
@@ -33,7 +34,7 @@ def query_chatgpt(prompt, model="gpt-3.5-turbo-0613", api_key=api_key):
     if response.status_code == 200:
         return response.json()
     else:
-        return response.text
+        raise Exception(f"error: {response.text}")
 
 
 def create_app() -> Flask:
@@ -45,14 +46,14 @@ def create_app() -> Flask:
 
     @app.route("/service_output", methods=["POST"])
     def inference() -> dict[str, Any]:
-        input = request.json
+        input: dict[str, Any] = cast(dict[str, Any], request.json)
         print("input is", json.dumps(input, indent=2))
         if input.get("source") == 0:
-            encoded = input.get("data")
+            encoded: str = input["data"]
             bytearray = bytes.fromhex(encoded)
             prompt = bytearray.decode("utf-8")
         else:
-            prompt = input.get("data").get("prompt")
+            prompt = input["data"]["prompt"]
         response = query_chatgpt(prompt, api_key=api_key)
         return {"output": response["choices"][0]["message"]["content"]}
 
